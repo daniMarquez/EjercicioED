@@ -4,10 +4,10 @@ import java.io.InputStreamReader;
 
 public class Fecha {
 	/**
-	 * En esta clase se introducen 3 enteros que equivaldrian al dia, mes y anyo y te dice si esa
-	 * fecha es valida
-	 * @version 1.0, 25/02/2017
-	 * @author Dani 
+	 * En esta clase se introducen 3 enteros que equivaldrian al dia, mes y anyo
+	 * y te dice si esa fecha es valida
+	 * @author Dani
+	 * @version 2.0, 25/02/2017
 	 */
 	private int dia;
 	private int mes;
@@ -15,9 +15,13 @@ public class Fecha {
 
 	/**
 	 * Constructor
-	 * @param dia dia que quieres comprobar
-	 * @param mes mes que quieres comprobar
-	 * @param anio anio que quieres comprobar
+	 * 
+	 * @param dia
+	 *            dia que quieres comprobar
+	 * @param mes
+	 *            mes que quieres comprobar
+	 * @param anio
+	 *            anio que quieres comprobar
 	 */
 	public Fecha(int dia, int mes, int anio) {
 		this.dia = dia;
@@ -26,19 +30,30 @@ public class Fecha {
 	}
 
 	/**
-	 * En esta clase se comprueba si los datos introducidos anteriormente son validos o no
+	 * En esta clase se comprueba si los datos introducidos anteriormente son
+	 * validos o no
+	 * 
 	 * @return true, si es valide y false, si no lo es
 	 */
+
 	public boolean valida() {
-		
 		if (dia < 1 || dia > 31)
 			return false;
 		if (mes < 1 || mes > 12)
 			return false;
 		if (anio < 0)
 			return false;
+		if (dia > diasMes())
+			return false;
+		else
+			return true;
 
-		// determinamos la cantidad de días del mes:
+	}
+	/**
+	 * Comprueba el dia del mes
+	 * @return El dia del mes
+	 */
+	private int diasMes() {
 		int diasMes = 0;
 		switch (mes) {
 		case 1:
@@ -56,17 +71,14 @@ public class Fecha {
 		case 11:
 			diasMes = 30;
 			break;
-		case 2: // verificación de año bisiesto
+		case 2:
 			if ((anio % 400 == 0) || ((anio % 4 == 0) && (anio % 100 != 0)))
 				diasMes = 29;
 			else
 				diasMes = 28;
 			break;
 		}
-		if (dia > diasMes)
-			return false;
-		else
-			return true;
+		return diasMes;
+		
 	}
-
 }
