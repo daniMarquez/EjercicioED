@@ -6,8 +6,9 @@ public class Fecha {
 	/**
 	 * En esta clase se introducen 3 enteros que equivaldrian al dia, mes y anyo
 	 * y te dice si esa fecha es valida
+	 * 
 	 * @author Dani
-	 * @version 2.0, 25/02/2017
+	 * @version 3.0, 25/02/2017
 	 */
 	private int dia;
 	private int mes;
@@ -49,8 +50,10 @@ public class Fecha {
 			return true;
 
 	}
+
 	/**
 	 * Comprueba el dia del mes
+	 * 
 	 * @return El dia del mes
 	 */
 	private int diasMes() {
@@ -72,13 +75,24 @@ public class Fecha {
 			diasMes = 30;
 			break;
 		case 2:
-			if ((anio % 400 == 0) || ((anio % 4 == 0) && (anio % 100 != 0)))
+			if (bisiesto())
 				diasMes = 29;
 			else
 				diasMes = 28;
 			break;
 		}
 		return diasMes;
-		
 	}
+
+	/**
+	 * comprueba si el anyo es bisiesto
+	 * @return true, si es bisiesto y false , si no lo es
+	 */
+	private boolean bisiesto() {
+		if ((anio % 400 == 0) || ((anio % 4 == 0) && (anio % 100 != 0)))
+			return true;
+		else
+			return false;
+	}
+
 }

@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 /**
  * En esta clase se llama a los metodos de la clase Fecha
  * @author Dani
- * @version 2.0, 25/02/2017
+ * @version 3.0, 25/02/2017
  */
 public class TestFecha {
 	public static void main(String[] args) throws IOException {
